@@ -1,0 +1,18 @@
+apply plugin: 'maven-publish'
+
+group = 'com.github.brianhacks'
+version = '2.11.4' // or whatever version you want
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            artifact("aar/exoplayer-2.11.4.aar") {
+                extension 'aar'
+            }
+            groupId = 'com.google.android.exoplayer'
+            artifactId = 'exoplayer'
+            version = '2.11.4'
+        }
+        // Repeat for other AARs if needed
+    }
+}
