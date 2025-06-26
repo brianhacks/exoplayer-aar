@@ -1,7 +1,12 @@
 apply plugin: 'maven-publish'
 
 group = 'com.github.brianhacks'
-version = '2.11.4' // or whatever version you want
+version = '2.11.4'
+
+// Add this task that JitPack expects
+task assemble {
+    dependsOn publishToMavenLocal
+}
 
 publishing {
     publications {
@@ -13,6 +18,5 @@ publishing {
             artifactId = 'exoplayer'
             version = '2.11.4'
         }
-        // Repeat for other AARs if needed
     }
 }
