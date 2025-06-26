@@ -3,14 +3,9 @@ apply plugin: 'maven-publish'
 group = 'com.github.brianhacks'
 version = '2.11.4'
 
-// Add this task that JitPack expects
-task assemble {
-    dependsOn publishToMavenLocal
-}
-
 publishing {
     publications {
-        aar(MavenPublication) {
+        exoplayer(MavenPublication) {
             artifact("aar/exoplayer-2.11.4.aar") {
                 extension 'aar'
             }
@@ -18,5 +13,55 @@ publishing {
             artifactId = 'exoplayer'
             version = '2.11.4'
         }
+        
+        exoplayerCore(MavenPublication) {
+            artifact("aar/exoplayer-core-2.11.4.aar") {
+                extension 'aar'
+            }
+            groupId = 'com.google.android.exoplayer'
+            artifactId = 'exoplayer-core'
+            version = '2.11.4'
+        }
+        
+        exoplayerDash(MavenPublication) {
+            artifact("aar/exoplayer-dash-2.11.4.aar") {
+                extension 'aar'
+            }
+            groupId = 'com.google.android.exoplayer'
+            artifactId = 'exoplayer-dash'
+            version = '2.11.4'
+        }
+        
+        exoplayerHls(MavenPublication) {
+            artifact("aar/exoplayer-hls-2.11.4.aar") {
+                extension 'aar'
+            }
+            groupId = 'com.google.android.exoplayer'
+            artifactId = 'exoplayer-hls'
+            version = '2.11.4'
+        }
+        
+        exoplayerUi(MavenPublication) {
+            artifact("aar/exoplayer-ui-2.11.4.aar") {
+                extension 'aar'
+            }
+            groupId = 'com.google.android.exoplayer'
+            artifactId = 'exoplayer-ui'
+            version = '2.11.4'
+        }
+        
+        exoplayerSmoothstreaming(MavenPublication) {
+            artifact("aar/exoplayer-smoothstreaming-2.11.4.aar") {
+                extension 'aar'
+            }
+            groupId = 'com.google.android.exoplayer'
+            artifactId = 'exoplayer-smoothstreaming'
+            version = '2.11.4'
+        }
     }
+}
+
+// Add this task that JitPack expects
+task assemble {
+    dependsOn publishToMavenLocal
 }
